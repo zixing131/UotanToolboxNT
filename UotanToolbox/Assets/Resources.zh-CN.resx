@@ -570,6 +570,21 @@
   <data name="Scrcpy_MoreSettings" xml:space="preserve">
     <value>更多设置</value>
   </data>
+  <data name="Scrcpy_ScreenRotation" xml:space="preserve">
+    <value>屏幕旋转</value>
+  </data>
+  <data name="Scrcpy_MirrorRotation" xml:space="preserve">
+    <value>镜像旋转</value>
+  </data>
+  <data name="Scrcpy_LockAngle" xml:space="preserve">
+    <value>锁定角度</value>
+  </data>
+  <data name="Scrcpy_NormalRotation" xml:space="preserve">
+    <value>默认角度</value>
+  </data>
+  <data name="Scrcpy_CustomRotation" xml:space="preserve">
+    <value>自定义角度</value>
+  </data>
   <data name="Scrcpy_ProportionalScaling" xml:space="preserve">
     <value>等比缩放</value>
   </data>
@@ -693,6 +708,9 @@
   <data name="Appmgr_Fetching" xml:space="preserve">
     <value>获取中 ...</value>
   </data>
+  <data name="Filemgr_Fetching" xml:space="preserve">
+    <value>获取中 ...</value>
+  </data>
   <data name="Appmgr_InstallApp" xml:space="preserve">
     <value>安装应用</value>
   </data>
@@ -773,6 +791,9 @@
   </data>
   <data name="Sidebar_Appmgr" xml:space="preserve">
     <value>应用管理</value>
+  </data>
+  <data name="Sidebar_Filemgr" xml:space="preserve">
+    <value>文件管理</value>
   </data>
   <data name="Sidebar_Customizedflash" xml:space="preserve">
     <value>自定义刷入</value>
@@ -1498,12 +1519,6 @@ ADB下填写序号，一次一个！</value>
   <data name="Scrcpy_VS_DisplaySizeExample" xml:space="preserve">
     <value>1920x1080/460 (高 × 宽)/dpi</value>
   </data>
-  <data name="Common_EnterFastbootd" xml:space="preserve">
-    <value>请进入Fastbootd模式！</value>
-  </data>
-  <data name="Modifypartition_EnterName" xml:space="preserve">
-    <value>请输入分区名称！</value>
-  </data>
   <data name="Home_ShutDownTip" xml:space="preserve">
     <value>执行成功，拔出设备连接线即可关机！</value>
   </data>
@@ -1546,22 +1561,28 @@ ADB下填写序号，一次一个！</value>
   <data name="Wiredflash_RelockTip" xml:space="preserve">
     <value>您选择了会进行回锁操作的脚本，确认继续吗？</value>
   </data>
-  <data name="Scrcpy_ScreenRotation" xml:space="preserve">
-    <value>屏幕旋转</value>
-  </data>
-  <data name="Scrcpy_MirrorRotation" xml:space="preserve">
-    <value>镜像旋转</value>
-  </data>
-  <data name="Scrcpy_LockAngle" xml:space="preserve">
-    <value>锁定角度</value>
-  </data>
-  <data name="Scrcpy_NormalRotation" xml:space="preserve">
-    <value>默认角度</value>
-  </data>
-  <data name="Scrcpy_CustomRotation" xml:space="preserve">
-    <value>自定义角度</value>
-  </data>
   <data name="Scrcpy_ForwardAudio" xml:space="preserve">
     <value>转发音频</value>
+  </data>
+  <data name="Filemgr_FileManager" xml:space="preserve">
+    <value>文件管理</value>
+  </data>
+  <data name="Filemgr_FileOperate" xml:space="preserve">
+    <value>文件操作</value>
+  </data>
+  <data name="Filemgr_Upload" xml:space="preserve">
+    <value>上传文件</value>
+  </data>
+  <data name="Filemgr_NowDir" xml:space="preserve">
+    <value>当前文件夹</value>
+  </data>
+  <data name="Filemgr_Download" xml:space="preserve">
+    <value>下载文件</value>
+  </data>
+  <data name="Common_EnterFastbootd" xml:space="preserve">
+    <value>请进入Fastbootd模式！</value>
+  </data>
+  <data name="Modifypartition_EnterName" xml:space="preserve">
+    <value>请输入分区名称！</value>
   </data>
 </root>

@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="UotanToolbox.Features.Filemgr.FilemgrView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:Filemgr="clr-namespace:UotanToolbox.Features.Filemgr"
+             xmlns:theme="clr-namespace:SukiUI.Theme;assembly=SukiUI"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:assets="clr-namespace:UotanToolbox.Assets;assembly=UotanToolbox"
+			 d:DesignHeight="800"
+             d:DesignWidth="1024"
+             mc:Ignorable="d"
+			 x:DataType="Filemgr:FilemgrViewModel">
+
+	<UserControl.DataContext>
+		<Filemgr:FilemgrViewModel />
+	</UserControl.DataContext>
+	<ScrollViewer VerticalScrollBarVisibility="Hidden">
+		<WrapPanel Margin="15"
+               theme:WrapPanelExtensions.AnimatedScroll="True"
+               Orientation="Horizontal">
+		<suki:GlassCard Height="220" Width="464.25" HorizontalAlignment="Left" Margin="10 15" VerticalAlignment="Top">
+		 
+			<suki:BusyArea BusyText="{Binding OpearteBusyText}" 
+						   
+						   IsBusy="{Binding IsOpearteBusy}">
+				
+			<StackPanel Spacing="10">
+				<TextBlock HorizontalAlignment="Left"
+						   FontSize="15"
+						   FontWeight="DemiBold"
+						   Text="{x:Static assets:Resources.Filemgr_FileOperate}" />
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<TextBlock Text="下载地址:" VerticalAlignment="Center"></TextBlock>
+					<TextBox Name="txt_download" Text="/sdcard/Download/magisk*.img" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+				</Grid>
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<TextBlock Text="上传地址:" VerticalAlignment="Center"></TextBlock>
+					<TextBox Name="txt_upload" Text="/sdcard/" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+				</Grid>
+				
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+						<Button Width="125"
+								HorizontalAlignment="Left"
+								Padding="8" 
+								Click="Button_Upload_Click">
+							<TextBlock>
+								<avalonia:MaterialIcon Kind="Upload" />
+								<TextBlock Text="{x:Static assets:Resources.Filemgr_Upload}" />
+							</TextBlock>
+						</Button>
+
+						<Button Width="125"
+							HorizontalAlignment="Left"
+							Padding="8"
+							Click="Button_Download_Click"
+								>
+							<TextBlock>
+								<avalonia:MaterialIcon Kind="Download" />
+								<TextBlock Text="{x:Static assets:Resources.Filemgr_Download}" />
+							</TextBlock>
+						</Button>
+						 
+					</StackPanel> 
+				</StackPanel>
+			</StackPanel> 
+				</suki:BusyArea>
+		</suki:GlassCard>
+
+		<Grid Margin="20 15 13 15">
+			<suki:GlassCard Width="464.25"
+							Height="220"
+							VerticalAlignment="Top">
+				<StackPanel>
+					<TextBlock HorizontalAlignment="Left"
+						   FontSize="15"
+						   FontWeight="DemiBold"
+						   Text="{x:Static assets:Resources.Filemgr_NowDir}" /> 
+					<TextBlock Text="{Binding NowDir}" /> 
+				</StackPanel>
+			</suki:GlassCard>
+		</Grid>
+
+		<suki:GlassCard Classes="Card"
+						Margin="10 15"
+						Width="960"
+						Height="510">
+			
+			<suki:BusyArea BusyText="{x:Static assets:Resources.Filemgr_Fetching}"
+						   IsBusy="{Binding IsBusy}">
+				<ScrollViewer>
+					<WrapPanel theme:WrapPanelExtensions.AnimatedScroll="True"
+							   Orientation="Vertical">
+
+						<TextBlock HorizontalAlignment="Left"
+							   FontSize="15"
+							   FontWeight="DemiBold"
+							   Text="{x:Static assets:Resources.Filemgr_FileManager}" />
+						<ItemsControl ItemsSource="{Binding Fileinfos}">
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<VirtualizingStackPanel Orientation="Vertical" />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<suki:GlassCard Width="890" Margin="0,10,10,0">
+										<StackPanel Orientation="Vertical" Spacing="5">
+											<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+												<RadioButton GroupName="ApplicationSelection" HorizontalAlignment="Right" IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+												<TextBlock FontSize="15" FontWeight="DemiBold" Text="{Binding DisplayName}" HorizontalAlignment="Left" />
+											</StackPanel>
+											<TextBlock FontSize="12" Text="{Binding OtherInfo}" />
+											<Button Classes="Hyperlink" Foreground="White" FontSize="12" Content="删除" Click="Button_Delete_Click" HorizontalAlignment="Right"/>
+										</StackPanel>
+									</suki:GlassCard>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</WrapPanel>
+				</ScrollViewer>
+			</suki:BusyArea>
+		</suki:GlassCard>
+	</WrapPanel>
+	</ScrollViewer>
+</UserControl>

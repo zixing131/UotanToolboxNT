@@ -1,4 +1,5 @@
-﻿using Avalonia.Collections;
+﻿using AdvancedSharpAdbClient;
+using Avalonia.Collections;
 using SukiUI.Dialogs;
 using SukiUI.Toasts;
 
@@ -35,6 +36,7 @@ namespace UotanToolbox.Common
         //主页的Dialog
         public static ISukiDialogManager MainDialogManager;
         public static ISukiToastManager MainToastManager;
+        public static AdbClient adbClient = new AdbClient();
     }
     public class BootInfo
     {

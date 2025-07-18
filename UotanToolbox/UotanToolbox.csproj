@@ -14,8 +14,15 @@
 		<AssemblyVersion>3.3.5.0</AssemblyVersion>
 		<FileVersion>3.3.5.0</FileVersion>
 		<Version>3.3.5</Version>
+		<Platforms>AnyCPU;ARM64</Platforms>
+		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <Optimize>False</Optimize>
+	  <WarningLevel>2</WarningLevel>
+	  <DebugType>portable</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
 	  <Optimize>False</Optimize>
 	  <WarningLevel>2</WarningLevel>
 	  <DebugType>portable</DebugType>
@@ -24,8 +31,13 @@
 	  <WarningLevel>2</WarningLevel>
 	  <DebugType>portable</DebugType>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+	  <WarningLevel>2</WarningLevel>
+	  <DebugType>portable</DebugType>
+	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AdvancedSharpAdbClient" Version="3.4.14" />
 		<PackageReference Include="Avalonia" Version="11.2.3" />
 		<PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.2.3" />
 		<PackageReference Include="Avalonia.Desktop" Version="11.2.3" />
@@ -63,7 +75,7 @@
 	  <None Remove="Extensions\**" />
 	  <None Remove="Features\Components\**" />
 	</ItemGroup>
-
+ 
 	<ItemGroup>
 		<Content Include="Assets\icon.ico" />
 	</ItemGroup>
@@ -79,6 +91,9 @@
 		</Compile>
 		<Compile Update="Features\Basicflash\BasicflashView.axaml.cs">
 		  <DependentUpon>BasicflashView.axaml</DependentUpon>
+		</Compile> 
+		<Compile Update="Features\Filemgr\FilemgrView.axaml.cs">
+			<DependentUpon>FilemgrView.axaml</DependentUpon>
 		</Compile>
 		<Compile Update="Features\FormatExtract\FormatExtractView.axaml.cs">
 		  <DependentUpon>FormatExtractView.axaml</DependentUpon>

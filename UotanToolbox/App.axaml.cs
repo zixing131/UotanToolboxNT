@@ -3,12 +3,14 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Templates;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using SukiUI.Dialogs;
 using SukiUI.Toasts;
 using System;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using UotanToolbox.Common;
 using UotanToolbox.Features;
 using UotanToolbox.Services;
@@ -23,6 +25,27 @@ public partial class App : Application
     {
         AvaloniaXamlLoader.Load(this);
         _provider = ConfigureServices();
+        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+        //Task线程内未捕获异常处理事件
+        TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+        Dispatcher.UIThread.UnhandledException += Current_DispatcherUnhandledException;
+    }
+
+    private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
+        Console.WriteLine("发生错误:" + e.ToString());
+    }
+
+    private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+    {
+        Console.WriteLine("发生错误:" + e.Exception.Message.ToString());
+    }
+
+    private void Current_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        e.Handled = true;
+        Console.WriteLine("发生错误:" + e.Exception.Message.ToString());
     }
 
     public override void OnFrameworkInitializationCompleted()

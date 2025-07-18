@@ -21,6 +21,7 @@ public partial class MainView : SukiWindow
     public MainView()
     {
         InitializeComponent();
+        this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         Bitmap bitmap = new Bitmap(AssetLoader.Open(new Uri("avares://UotanToolbox/Assets/OIG.N5o-removebg-preview.png")));
         Icon = new WindowIcon(bitmap);
         SetSystemDecorationsBasedOnPlatform();
@@ -124,8 +125,8 @@ public partial class MainView : SukiWindow
             SettingsViewModel settingsViewModel = new SettingsViewModel();
             Settings.Default.IsLightTheme = settingsViewModel.IsLightTheme;
             Settings.Default.Save();
-            KillProcess("adb");
-            KillProcess("hdc");
+            //KillProcess("adb");
+            //KillProcess("hdc");
         };
     }
 
