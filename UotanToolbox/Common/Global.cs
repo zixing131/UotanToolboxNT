@@ -13,7 +13,7 @@ namespace UotanToolbox.Common
         public static string tmp_path = null;
         public static string log_path = null;
         public static string backup_path = null;
-        public static string System = "Windows";
+        public static string System = "macOS";
         public static string serviceID = null;
         public static string password = null;
         public static bool root = true;

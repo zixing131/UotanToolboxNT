@@ -82,6 +82,10 @@ public partial class FilemgrView : UserControl
             return;
         }
         string path =  Path.Combine(Directory.GetCurrentDirectory(), "download");
+            if(Global.System == "macOS")
+            {
+                path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "filedownload");
+            }
         try
         {
             if (Directory.Exists(path) == false)
