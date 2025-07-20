@@ -31,15 +31,15 @@ public partial class FilemgrView : UserControl
     public FilemgrView()
     {
         InitializeComponent();
-        this.txt_download.Text = UotanToolbox.Settings.Default.downloadPath;
-        this.txt_upload.Text = UotanToolbox.Settings.Default.uploadPath;
+        this.txt_download.Text = UotanToolbox.Settings.Default.DownloadPath;
+        this.txt_upload.Text = UotanToolbox.Settings.Default.UploadPath;
 
     }
 
     private void saveConfig()
     {
-        UotanToolbox.Settings.Default.downloadPath = this.txt_download.Text;
-        UotanToolbox.Settings.Default.uploadPath = this.txt_upload.Text;
+        UotanToolbox.Settings.Default.DownloadPath = this.txt_download.Text;
+        UotanToolbox.Settings.Default.UploadPath = this.txt_upload.Text;
         UotanToolbox.Settings.Default.Save(); 
     }
     private static FilePickerFileType AllPicker { get; } = new("All File")

@@ -50,24 +50,24 @@ namespace UotanToolbox {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/sdcard/Download/magisk*.img")]
-        public string downloadPath {
+        public string DownloadPath {
             get {
-                return ((string)(this["downloadPath"]));
+                return ((string)(this["DownloadPath"]));
             }
             set {
-                this["downloadPath"] = value;
+                this["DownloadPath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/sdcard/")]
-        public string uploadPath {
+        public string UploadPath {
             get {
-                return ((string)(this["uploadPath"]));
+                return ((string)(this["UploadPath"]));
             }
             set {
-                this["uploadPath"] = value;
+                this["UploadPath"] = value;
             }
         }
     }

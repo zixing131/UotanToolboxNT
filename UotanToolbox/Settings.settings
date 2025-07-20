@@ -8,10 +8,10 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="downloadPath" Type="System.String" Scope="User">
+    <Setting Name="DownloadPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">/sdcard/Download/magisk*.img</Value>
     </Setting>
-    <Setting Name="uploadPath" Type="System.String" Scope="User">
+    <Setting Name="UploadPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">/sdcard/</Value>
     </Setting>
   </Settings>

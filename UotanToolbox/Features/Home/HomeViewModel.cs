@@ -54,7 +54,7 @@ public partial class HomeViewModel : MainPageBase
                     _ = ConnectCore();
                 }
             });
-        _ = CheckForUpdate();
+        //_ = CheckForUpdate();
     }
 
     public async Task CheckForUpdate()
